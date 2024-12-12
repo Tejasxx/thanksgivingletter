@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Heartfelt Thank You to Dr. A. Dhanalakshmi</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .letter-container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 700px;
+            width: 100%;
+            animation: fadeIn 1.5s ease-out;
+        }
+        .letter-header {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .letter-body {
+            text-align: justify;
+            color: #34495e;
+        }
+        .signature {
+            margin-top: 30px;
+            text-align: right;
+            font-style: italic;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="letter-container">
+        <div class="letter-header">
+            <h1>A Tribute to Dr. A. Dhanalakshmi</h1>
+        </div>
+        <div class="letter-body">
+            <p>Dear Dr. A. Dhanalakshmi,</p>
+            
+            <p>As our journey together comes to a close, I, B. Tejusvardhan, find myself overwhelmed with gratitude for the incredible guidance and support you've provided me over the past year. Your mentorship has been more than just academic advice – it has been a transformative experience that has shaped my personal and professional growth in ways I could never have imagined.</p>
+            
+            <p>Through your patience, wisdom, and unwavering belief in my potential, you've helped me navigate challenges, overcome self-doubt, and discover strengths I didn't know I possessed. Every conversation, every piece of advice, every moment of constructive feedback has been a stepping stone towards my personal development.</p>
+            
+            <p>You didn't just teach me skills; you inspired me to think critically, to be curious, and to never stop learning. The knowledge you've shared goes far beyond textbooks – you've taught me about resilience, passion, and the importance of believing in oneself.</p>
+            
+            <p>As we prepare to part ways, I want you to know that the impact of your mentorship will continue to resonate in my life. The lessons you've imparted are seeds that will continue to grow and flourish in my future endeavors.</p>
+            
+            <p>Thank you for being an extraordinary mentor, a guiding light, and an inspiration.</p>
+        </div>
+        <div class="signature">
+            <p>With deepest gratitude,<br>B. Tejusvardhan</p>
+        </div>
+    </div>
+
+    <div class="confetti-container" id="confetti"></div>
+
+    <script>
+        function createConfetti() {
+            const container = document.getElementById('confetti');
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9d56e', '#ff9ff3'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'absolute';
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.borderRadius = '50%';
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                confetti.style.animationDelay = `${Math.random() * 2}s`;
+                confetti.style.opacity = Math.random();
+                
+                confetti.style.animation = `
+                    fall ${Math.random() * 3 + 2}s linear ${Math.random() * 2}s infinite,
+                    sideway ${Math.random() * 2 + 1}s ease-in-out alternate infinite
+                `;
+                
+                container.appendChild(confetti);
+            }
+        }
+
+        // Confetti falling animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fall {
+                to { transform: translateY(100vh) rotate(360deg); }
+            }
+            @keyframes sideway {
+                from { transform: translateX(-50px); }
+                to { transform: translateX(50px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Trigger confetti on page load
+        window.addEventListener('load', createConfetti);
+    </script>
+</body>
+</html>
